@@ -25,6 +25,18 @@ The library exports the object `logical`, which has the following well-known met
 It also has a **strictXor** method. It is a strict check to see if the collection only has 1 truthful element, instead of the tradtional electronics convention of odd/parity.
 
 
+```javascript
+var and = logical.and([true, true);  // and = true
+var and = logical.and([true, false); // and = false
+
+var xor = logical.xor([true, false, true, false, true); // xor = true
+```
+
+
+## Roadmap
++ Generate documentation;
++ Add more test cases.
+
 ## Contributing
 Guidelines for contributing are simple: have performance in mind! Please perform tests before submitting a pull request. It will be faster for me to approve them.
 
