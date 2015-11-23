@@ -1,0 +1,35 @@
+{
+  "name": "logicaljs",
+  "main": "src/logical.js",
+  "appPath": "src",
+  "version": "0.0.1",
+  "description": "Have all the Logic within your JavaScript projects. LogicalJS provides you the Logical Gates you are used to in electronics.",
+  "authors": [
+    "Filipe Garcia <http://filipe-garcia.com>"
+  ],
+  "moduleType": [
+    "amd",
+    "globals",
+    "node"
+  ],
+  "keywords": [
+    "logic",
+    "logical",
+    "logicaljs",
+    "gate",
+    "gates",
+    "electronic"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/fgarci03/logicaljs",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/fgarci03/logicaljs.git"
+  },
+  "ignore": [
+    ".*",
+    "**/.*",
+    "node_modules",
+    "bower_components"
+  ]
+}

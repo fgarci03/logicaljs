@@ -1,0 +1,33 @@
+{
+  "name": "logicaljs",
+  "version": "0.0.1",
+  "title": "Logical JS",
+  "description": "Have all the Logic within your JavaScript projects. LogicalJS provides you the Logical Gates you are used to in electronics.",
+  "author": {
+    "name": "Filipe Garcia",
+    "homepage": "http://filipe-garcia.com"
+  },
+  "repository": "https://github.com/fgarci03/logicaljs.git",
+  "licence": "MIT",
+  "homepage": "https://github.com/fgarci03/logicaljs",
+  "dependencies": {},
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-add-comment": "^1.1.5",
+    "grunt-contrib-clean": "^0.6.0",
+    "grunt-contrib-copy": "^0.8.0",
+    "grunt-contrib-jshint": "^0.11.3",
+    "grunt-contrib-uglify": "^0.9.1",
+    "grunt-karma": "^0.12.1",
+    "jasmine-core": "^2.3.4",
+    "jshint-stylish": "^2.0.1",
+    "karma": "^0.13.9",
+    "karma-jasmine": "^0.3.6",
+    "karma-phantomjs-launcher": "^0.2.1",
+    "load-grunt-tasks": "^3.2.0",
+    "phantomjs": "^1.9.18"
+  },
+  "engines": {
+    "node": ">=0.8.0"
+  }
+}
