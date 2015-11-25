@@ -35,12 +35,14 @@
 
   /**
    * @name truthCounter
-   * @description Gets the number of truthful elements in a collection
+   * @description <h4><strong>Gets the number of truthful elements in a collection<strong><h4>
+   *
    * @private
+   * @ignore
    *
-   * @param {Array} collection    The property to evaluate
+   * @param {Array} collection    The property to evaluate.
    *
-   * @returns {Number}            The number of truthful elements in a collection
+   * @returns {Number}            The number of truthful elements in a collection.
    */
   var truthCounter = function (collection) {
     if (!isArray(collection)) {
@@ -59,7 +61,7 @@
 
   /**
    * @name iterator
-   * @description <h3>Multi purpose iterator to evaluate all kinds of expressions.</h3>
+   * @description <h4><strong>Multi purpose iterator to evaluate all kinds of expressions.<strong><h4>
    *
    * <p>It simply iterates through the collection and when it finds an element
    * that meets the criteria, it returns the value you passed in 'resultIfTrue'.
@@ -67,15 +69,30 @@
    * This is the main engine for checking elements where you don't need to iterate
    * the full collection to know the result - 'and', 'or', 'nor', 'nand'.</p>
    *
+   * @example
+   * /* iterator(collection, false, true) -> logical.and()
+   *  *resultIfTrue = false; expectFalseCondition = true;
+   *  *
+   *
+   * for (var i = 0; i < collection.length; i++) {
+   *   if(!collection[i]) { // ---> expectFalseCondition, right?
+   *     return false;      // ---> resultIfTrue (or: result if the condition is met)
+   *   }
+   * }
+   * return true;           // ---> !resultIfFalse
+   *
+   * /* As you can see, setting the 'expectFalseCondition' to true made it check if
+   *  * a given element in the collection was false. Setting the 'resultIfTrue' to
+   *  * false made it return false when the condition is met.
+   *
    * @private
+   * @ignore
    *
-   * @param {Array} collection                The collection to iterate (object or array)
-   * @param {Boolean} resultIfConditionIsMet  The result returned if the condition is met
-   * @param {Boolean} expectFalseCondition    The condition you are looking for in order to return the defined 'resultIfConditionIsMet'
+   * @param {Array} collection                The collection to iterate (object or array).
+   * @param {Boolean} resultIfConditionIsMet  The result returned if the condition is met.
+   * @param {Boolean} expectFalseCondition    The condition you are looking for in order to return the defined 'resultIfConditionIsMet'.
    *
-   * @tutorial    Check each method's documentation for a better explanation of what it is doing.
-   *
-   * @returns {Boolean}                       The final result
+   * @returns {Boolean}                       The final result.
    */
   var iterator = function (collection, resultIfConditionIsMet, expectFalseCondition) {
     if (!isArray(collection)) {
@@ -99,75 +116,66 @@
   //-------------
 
   /**
-   * @name AND
-   * @description <h3>Checks if all the conditions are true</h3>
+   * @name and
+   * @description <h4><strong>Checks if all the conditions are true<strong><h4>
    *
-   * <strong>iterator(collection, false, true) - What Is It Doing?</strong>
-   * <code>resultIfTrue = false; expectFalseCondition = true;</code>
+   * @example
+   * var array = [false, false, true];
+   * var bool = logical.and(array);
    *
-   * <br /><br />
-   *
-   * <pre>
-   * for (var i = 0; i < collection.length; i++) {
-   *   if(!collection[i]) { // ---> expectFalseCondition, right?
-   *     return false;      // ---> resultIfTrue (or: result if the condition is met)
-   *   }
-   * }
-   * return true;           // ---> !resultIfFalse
-   * </pre>
-   *
-   * <p>As you can see, setting the 'expectFalseCondition' to true made it check if
-   * a given element in the collection was false. Setting the 'resultIfTrue' to
-   * false made it return false when the condition is met.</p>
+   * console.log(bool); // false
    *
    *
    * @public
+   * @method
    *
-   * @param {Array} collection  The collection to iterate
+   * @param {Array} collection  The collection to iterate.
    *
-   * @returns {Boolean}         True if all conditions are true
+   * @returns {Boolean}         True if all conditions are true.
    */
   logical.and = function (collection) {
     return iterator(collection, false, true);
   };
 
   /**
-   * @name OR
-   * @description <h3>Checks if at least one condition is true</h3>
+   * @name or
+   * @description <h4><strong>Checks if at least one condition is true<strong><h4>
    *
-   * <strong>iterator(collection, true, false) - What Is It Doing?</strong>
-   * <code>resultIfTrue = true; expectFalseCondition = false;</code>
+   * @example
+   * var array = [false, false, true];
+   * var bool = logical.or(array);
    *
-   * <br /><br />
-   *
-   * <pre>
-   * for (var i = 0; i < collection.length; i++) {
-   *   if(collection[i]) {
-   *     return true;
-   *   }
-   * }
-   * return false;
-   * </pre>
+   * console.log(bool); // true
    *
    *
    * @public
+   * @method
    *
-   * @param {Array} collection  The collection to iterate
+   * @param {Array} collection  The collection to iterate.
    *
-   * @returns {Boolean}         True if at least one condition is true
+   * @returns {Boolean}         True if at least one condition is true.
    */
   logical.or = function (collection) {
     return iterator(collection, true, false);
   };
 
   /**
-   * @name XOR
-   * @description <h3>Checks if the number of truthful conditions is odd</h3>
+   * @name xor
+   * @description <h4><strong>Checks if the number of truthful conditions is odd<strong><h4>
+   *
+   * @example
+   * var array = [true, true, true];
+   * var bool = logical.xor(array);
+   *
+   * console.log(bool); // true
+   *
+   *
    * @public
+   * @method
    *
-   * @param {Array} collection  The collection to iterate
+   * @param {Array} collection  The collection to iterate.
    *
-   * @returns {Boolean}         True if the number of truthful conditions is odd
+   * @returns {Boolean}         True if the number of truthful conditions is odd.
    */
   logical.xor = function (collection) {
     var numberOfTruths = truthCounter(collection);
@@ -183,14 +191,22 @@
   };
 
   /**
-   * @name XOR
-   * @description <h3>Checks if one and only one condition is true</h3>
+   * @name strictXor
+   * @description <h4><strong>Checks if one and only one condition is true<strong><h4>
+   *
+   * @example
+   * var array = [false, false, true];
+   * var bool = logical.strictXor(array);
+   *
+   * console.log(bool); // true
+   *
    *
    * @public
+   * @method
    *
-   * @param {Array} collection  The collection to iterate
+   * @param {Array} collection  The collection to iterate.
    *
-   * @returns {Boolean}         True if one and only one condition is true
+   * @returns {Boolean}         True if one and only one condition is true.
    */
   logical.strictXor = function (collection) {
     if (!isArray(collection)) {
@@ -212,43 +228,44 @@
   };
 
   /**
-   * @name NOR
-   * @description <h3>Checks if no condition is true</h3>
+   * @name nor
+   * @description <h4><strong>Checks if no condition is true<strong><h4>
    *
-   * <strong>iterator(collection, false, false) - What Is It Doing?</strong>
-   * <code>resultIfTrue = false; expectFalseCondition = false;</code>
+   * @example
+   * var array = [false, false, true];
+   * var bool = logical.nor(array);
    *
-   * <br /><br />
-   *
-   * <pre>
-   * for (var i = 0; i < collection.length; i++) {
-   *   if(collection[i]) {
-   *     return false;
-   *   }
-   * }
-   * return true;
-   * </pre>
+   * console.log(bool); // false
    *
    *
    * @public
+   * @method
    *
-   * @param {Array} collection  The collection to iterate
+   * @param {Array} collection  The collection to iterate.
    *
-   * @returns {Boolean}         True if no condition is true
+   * @returns {Boolean}         True if no condition is true.
    */
   logical.nor = function (collection) {
     return iterator(collection, false, false);
   };
 
   /**
-   * @name XNOR
-   * @description <h3>Checks if all or no condition is true</h3>
+   * @name xnor
+   * @description <h4><strong>Checks if all or no condition is true<strong><h4>
+   *
+   * @example
+   * var array = [false, false, false];
+   * var bool = logical.xnor(array);
+   *
+   * console.log(bool); // true
+   *
    *
    * @public
+   * @method
    *
-   * @param {Array} collection  The collection to iterate
+   * @param {Array} collection  The collection to iterate.
    *
-   * @returns {Boolean}         True if all or no condition is true
+   * @returns {Boolean}         True if all or no condition is true.
    */
   logical.xnor = function (collection) {
     /*
@@ -261,44 +278,46 @@
   };
 
   /**
-   * @name NAND
-   * @description <h3>Checks if not all conditions are true</h3>
+   * @name nand
+   * @description <h4><strong>Checks if not all conditions are true<strong><h4>
    *
-   * <strong>iterator(collection, true, true) - What Is It Doing?</strong>
-   * <code>resultIfTrue = true; expectFalseCondition = true;</code>
+   * @example
+   * var array = [false, false, true];
+   * var bool = logical.not(array);
    *
-   * <br /><br />
-   *
-   * <pre>
-   * for (var i = 0; i < collection.length; i++) {
-   *   if(!collection[i]) {
-   *     return true;
-   *   }
-   * }
-   * return false;
-   * </pre>
+   * console.log(bool); // true
    *
    *
    * @public
+   * @method
    *
-   * @param {Array} collection  The collection to iterate
+   * @param {Array} collection  The collection to iterate.
    *
-   * @returns {Boolean}         True if not all conditions are true
+   * @returns {Boolean}         True if not all conditions are true.
    */
   logical.nand = function (collection) {
     return iterator(collection, true, true);
   };
 
   /**
-   * @name NOT
-   * @description <h3>Inverts every element</h3>
+   * @name not
+   * @description <h4><strong>Inverts every element<strong><h4>
    *
    * <p><strong>NOTE</strong>: The collection is passed by reference.
    * This method does not return any value, and it changes the original collection.</p>
    *
-   * @public
+   * @example
+   * var array = [false, false, true];
+   * logical.not(array);
    *
-   * @param {Array} collection  The collection to iterate
+   * console.log(array); // [true, true, false]
+   *
+   *
+   * @public
+   * @method
+   *
+   * @param {Array} collection  The collection to iterate.
+   * @return {void}             This method has no return value.
    */
   logical.not = function (collection) {
     if (!isArray(collection)) {

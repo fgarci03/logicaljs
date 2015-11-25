@@ -17,7 +17,8 @@ module.exports = function (grunt) {
           {
             dot: true,
             src: [
-              '<%= yeoman.dist %>'
+              '<%= yeoman.dist %>',
+              'docs'
             ]
           }
         ]
@@ -78,6 +79,22 @@ module.exports = function (grunt) {
         autoWatch: false
       },
       unit: {}
+    },
+    jsdoc : {
+      dist : {
+        src: ['src/logical.js'],
+        options: {
+          destination: 'docs',
+          readme: 'README.md'
+        }
+      }
+    },
+    'gh-pages': {
+      options: {
+        base: 'docs',
+        message: 'Updated documentation'
+      },
+      src: ['**']
     }
   });
 
@@ -87,7 +104,8 @@ module.exports = function (grunt) {
     'copy:dist',
     'uglify:dist',
     'add_comment:dist',
-    'karma:dist'
+    'karma:dist',
+    'jsdoc:dist'
   ]);
 
   grunt.registerTask('test', [
@@ -97,5 +115,10 @@ module.exports = function (grunt) {
 
   grunt.registerTask('default', [
     'build'
+  ]);
+
+  grunt.registerTask('publish_pages', [
+    'build',
+    'gh-pages'
   ]);
 };

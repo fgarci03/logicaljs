@@ -1,6 +1,34 @@
-(function () {
-  var root = typeof self === 'object' && self.self === self && self ||
-    typeof global === 'object' && global.global === global && global ||
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: logical.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: logical.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>(function () {
+  var root = typeof self === 'object' &amp;&amp; self.self === self &amp;&amp; self ||
+    typeof global === 'object' &amp;&amp; global.global === global &amp;&amp; global ||
     this;
 
   // Create a safe reference to the Logical object for use below.
@@ -35,7 +63,7 @@
 
   /**
    * @name truthCounter
-   * @description <h4><strong>Gets the number of truthful elements in a collection<strong><h4>
+   * @description &lt;h4>&lt;strong>Gets the number of truthful elements in a collection&lt;strong>&lt;h4>
    *
    * @private
    * @ignore
@@ -50,7 +78,7 @@
     }
 
     var count = 0;
-    for (var i = 0; i < collection.length; i++) {
+    for (var i = 0; i &lt; collection.length; i++) {
       if (collection[i]) {
         count++;
       }
@@ -61,20 +89,20 @@
 
   /**
    * @name iterator
-   * @description <h4><strong>Multi purpose iterator to evaluate all kinds of expressions.<strong><h4>
+   * @description &lt;h4>&lt;strong>Multi purpose iterator to evaluate all kinds of expressions.&lt;strong>&lt;h4>
    *
-   * <p>It simply iterates through the collection and when it finds an element
+   * &lt;p>It simply iterates through the collection and when it finds an element
    * that meets the criteria, it returns the value you passed in 'resultIfTrue'.
-   * <br />
+   * &lt;br />
    * This is the main engine for checking elements where you don't need to iterate
-   * the full collection to know the result - 'and', 'or', 'nor', 'nand'.</p>
+   * the full collection to know the result - 'and', 'or', 'nor', 'nand'.&lt;/p>
    *
    * @example
    * /* iterator(collection, false, true) -> logical.and()
    *  *resultIfTrue = false; expectFalseCondition = true;
    *  *
    *
-   * for (var i = 0; i < collection.length; i++) {
+   * for (var i = 0; i &lt; collection.length; i++) {
    *   if(!collection[i]) { // ---> expectFalseCondition, right?
    *     return false;      // ---> resultIfTrue (or: result if the condition is met)
    *   }
@@ -99,7 +127,7 @@
       throw collectionIsNotArrayError;
     }
 
-    for (var i = 0; i < collection.length; i++) {
+    for (var i = 0; i &lt; collection.length; i++) {
       var condition = expectFalseCondition ? !collection[i] : collection[i];
 
       if (condition) {
@@ -117,7 +145,7 @@
 
   /**
    * @name and
-   * @description <h4><strong>Checks if all the conditions are true<strong><h4>
+   * @description &lt;h4>&lt;strong>Checks if all the conditions are true&lt;strong>&lt;h4>
    *
    * @example
    * var array = [false, false, true];
@@ -139,7 +167,7 @@
 
   /**
    * @name or
-   * @description <h4><strong>Checks if at least one condition is true<strong><h4>
+   * @description &lt;h4>&lt;strong>Checks if at least one condition is true&lt;strong>&lt;h4>
    *
    * @example
    * var array = [false, false, true];
@@ -161,7 +189,7 @@
 
   /**
    * @name xor
-   * @description <h4><strong>Checks if the number of truthful conditions is odd<strong><h4>
+   * @description &lt;h4>&lt;strong>Checks if the number of truthful conditions is odd&lt;strong>&lt;h4>
    *
    * @example
    * var array = [true, true, true];
@@ -181,7 +209,7 @@
     var numberOfTruths = truthCounter(collection);
     var output = false;
 
-    if (collection.length <= 3) {
+    if (collection.length &lt;= 3) {
       output = logical.strictXor(collection);
     } else {
       output = numberOfTruths % 2 !== 0;
@@ -192,7 +220,7 @@
 
   /**
    * @name strictXor
-   * @description <h4><strong>Checks if one and only one condition is true<strong><h4>
+   * @description &lt;h4>&lt;strong>Checks if one and only one condition is true&lt;strong>&lt;h4>
    *
    * @example
    * var array = [false, false, true];
@@ -215,7 +243,7 @@
 
     var count = 0;
 
-    for (var i = 0; i < collection.length; i++) {
+    for (var i = 0; i &lt; collection.length; i++) {
       if (collection[i]) {
         count++;
         if (count > 1) {
@@ -229,7 +257,7 @@
 
   /**
    * @name nor
-   * @description <h4><strong>Checks if no condition is true<strong><h4>
+   * @description &lt;h4>&lt;strong>Checks if no condition is true&lt;strong>&lt;h4>
    *
    * @example
    * var array = [false, false, true];
@@ -251,7 +279,7 @@
 
   /**
    * @name xnor
-   * @description <h4><strong>Checks if all or no condition is true<strong><h4>
+   * @description &lt;h4>&lt;strong>Checks if all or no condition is true&lt;strong>&lt;h4>
    *
    * @example
    * var array = [false, false, false];
@@ -279,7 +307,7 @@
 
   /**
    * @name nand
-   * @description <h4><strong>Checks if not all conditions are true<strong><h4>
+   * @description &lt;h4>&lt;strong>Checks if not all conditions are true&lt;strong>&lt;h4>
    *
    * @example
    * var array = [false, false, true];
@@ -301,10 +329,10 @@
 
   /**
    * @name not
-   * @description <h4><strong>Inverts every element<strong><h4>
+   * @description &lt;h4>&lt;strong>Inverts every element&lt;strong>&lt;h4>
    *
-   * <p><strong>NOTE</strong>: The collection is passed by reference.
-   * This method does not return any value, and it changes the original collection.</p>
+   * &lt;p>&lt;strong>NOTE&lt;/strong>: The collection is passed by reference.
+   * This method does not return any value, and it changes the original collection.&lt;/p>
    *
    * @example
    * var array = [false, false, true];
@@ -324,7 +352,7 @@
       throw collectionIsNotArrayError;
     }
 
-    for (var i = 0; i < collection.length; i++) {
+    for (var i = 0; i &lt; collection.length; i++) {
       collection[i] = !collection[i];
     }
   };
@@ -335,7 +363,7 @@
   // backwards-compatibility for their old module API. If we're in
   // the browser, add `logical` as a global object.
   if (typeof exports !== 'undefined') {
-    if (typeof module !== 'undefined' && module.exports) {
+    if (typeof module !== 'undefined' &amp;&amp; module.exports) {
       exports = module.exports = logical;
     }
     exports.logical = logical;
@@ -350,9 +378,32 @@
   // popular enough to be bundled in a third party lib, but not be part of
   // an AMD load request. Those cases could generate an error when an
   // anonymous define() is called outside of a loader request.
-  if (typeof define === 'function' && define.amd) {
+  if (typeof define === 'function' &amp;&amp; define.amd) {
     define('Logical', [], function () {
       return logical;
     });
   }
 }());
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#and">and</a></li><li><a href="global.html#nand">nand</a></li><li><a href="global.html#nor">nor</a></li><li><a href="global.html#not">not</a></li><li><a href="global.html#or">or</a></li><li><a href="global.html#strictXor">strictXor</a></li><li><a href="global.html#xnor">xnor</a></li><li><a href="global.html#xor">xor</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Wed Nov 25 2015 18:00:47 GMT+0000 (GMT Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
