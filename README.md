@@ -1,9 +1,13 @@
 # LogicalJS
-A library that performs [logic gate](https://en.wikipedia.org/wiki/Logic_gate) operations. Ever had the need to perform an XOR operation?
-Ever needed to perform huge amounts of `&&` to check an **AND** operation? Then this library is for you! It features all the logic gates and then some!
+[![Build Status](http://filipe-garcia.no-ip.org:8080/buildStatus/icon?job=LogicalJS)](http://filipe-garcia.no-ip.org:8080/job/LogicalJS/)
+
+A library that performs [logic gate](https://en.wikipedia.org/wiki/Logic_gate) operations. Ever had the need to perform
+an XOR operation? Ever needed to perform huge amounts of `&&` to check an **AND** operation? Then this library is for
+you! It features all the logic gates and then some!
 
 ### Performance
-This library was build with performance in mind. It's code could be a little simpler, but would require many more unnecessary iterations to some of the collections. All tests are performed with only 100K elements lists for test speed and to avoid 'out of memory' errors. It is, however, recommended that you test with whatever huge numbers you can get away with.
+This library was build with performance in mind. It's code could be a little simpler, but would require many more
+unnecessary iterations to some of the collections.
 
 
 ## Installation
