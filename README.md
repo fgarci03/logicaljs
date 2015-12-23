@@ -1,5 +1,5 @@
 # LogicalJS
-[![Build Status](http://filipe-garcia.no-ip.org:8080/buildStatus/icon?job=LogicalJS)](http://filipe-garcia.no-ip.org:8080/job/LogicalJS/)
+[![Build Status](http://filipegarcia.no-ip.org:8080/buildStatus/icon?job=LogicalJS)](http://filipegarcia.no-ip.org:8080/job/LogicalJS/)
 
 A library that performs [logic gate](https://en.wikipedia.org/wiki/Logic_gate) operations. Ever had the need to perform
 an XOR operation? Ever needed to perform huge amounts of `&&` to check an **AND** operation? Then this library is for
