@@ -6,7 +6,7 @@ an XOR operation? Ever needed to perform huge amounts of `&&` to check an **AND*
 you! It features all the logic gates and then some!
 
 ### Performance
-This library was build with performance in mind. It's code could be a little simpler, but would require many more
+This library was built with performance in mind. It's code could be a little simpler, but would require many more
 unnecessary iterations to some of the collections.
 
 

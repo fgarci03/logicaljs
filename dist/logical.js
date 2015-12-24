@@ -19,9 +19,6 @@
     return this;
   };
 
-  // Current version.
-  logical.VERSION = '0.0.1';
-
 
   //-----------------
   // Helpers
